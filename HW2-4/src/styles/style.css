@@ -1,0 +1,39 @@
+#vBox1{
+    -fx-background-color: DarkGray;
+}
+
+
+
+#sendButton {
+    -fx-background-color: DarkGray;
+    -fx-border-color: black;
+    -fx-border-radius: 5px 5px;
+
+
+}
+
+#sendButton:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+
+}
+
+#textArea{
+    -fx-padding: 5 5 5 5;
+    -fx-border-color: DarkGray;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: #D3D3D3;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+
+
+
+
+
+}
+
+#textField{
+    -fx-background-color: Gainsboro;
+}
