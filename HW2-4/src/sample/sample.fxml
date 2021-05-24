@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?scenbulder-stylesheet /styles/style.css?>
+
+<VBox fx:id="vBox1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <!--Компонент JavaFX VBox - это компонент макета, который размещает все свои дочерние узлы (компоненты) в вертикальном столбце - друг над другом.
+   Компонент JavaFX VBox представлен классом javafx.scene.layout.VBox. В этом руководстве по JavaFX VBox я более подробно рассмотрю различные параметры,
+   которые компонент VBox имеет для компоновки элементов управления.-->
+   <stylesheets><URL value="@/styles/style.css" /> </stylesheets><!--Подключаем таблицу стилей-->
+   <children>
+      <!--Создаём дочерние объекты-->
+      <TextArea fx:id="textArea" editable="false" focusTraversable="false" prefHeight="323.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+      <!--TextArea является компонентом, который позволяет пользователям вводить текст на многих строках, и читаются приложением.-->
+      <HBox prefHeight="29.0" prefWidth="600.0">
+        <!-- HBox размещает свои дочерние элементы в одну горизонтальную строку.
+        Если для HBox установлены границы и\или отступы, то содержимое будет размещено внутри этих вставок.-->
+         <children>
+            <!--Создаём дочерние объекты-->
+            <TextField fx:id="textField" onAction="#sendMsg" prefHeight="20.0" prefWidth="506.0" HBox.hgrow="ALWAYS">
+               <!--Элемент управления JavaFX TextField позволяет пользователям приложения JavaFX вводить текст, который затем может быть прочитан приложением.
+                Элемент управления JavaFX TextField представлен классом javafx.scene.control.TextField. -->
+               <HBox.margin>
+                  <!--Устанавливаем горизонтальный контейнер с полями-->
+                  <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                  <!--Непосредственно задаём поля-->
+               </HBox.margin>
+               <effect>
+                  <DropShadow />
+                  <!--Добавляем тени позади объекта-->
+               </effect>
+            </TextField>
+            <Button fx:id="sendButton" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#sendMsg" prefHeight="22.0" prefWidth="93.0" text="SEND" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <effect>
+                  <InnerShadow />
+                  <!--Добавляем тени внутри объекта-->
+               </effect>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
