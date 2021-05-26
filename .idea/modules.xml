@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Chat/Chat.iml" filepath="$PROJECT_DIR$/Chat/Chat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW1/HW1.iml" filepath="$PROJECT_DIR$/HW1/HW1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2/HW2.iml" filepath="$PROJECT_DIR$/HW2/HW2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-1/HW2-1.iml" filepath="$PROJECT_DIR$/HW2-1/HW2-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-2/HW2-2.iml" filepath="$PROJECT_DIR$/HW2-2/HW2-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-3/HW2-3.iml" filepath="$PROJECT_DIR$/HW2-3/HW2-3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-4/HW2-4.iml" filepath="$PROJECT_DIR$/HW2-4/HW2-4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-5/HW2-5.iml" filepath="$PROJECT_DIR$/HW2-5/HW2-5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW2-6/HW2-6.iml" filepath="$PROJECT_DIR$/HW2-6/HW2-6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW3/HW3.iml" filepath="$PROJECT_DIR$/HW3/HW3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW3-1/HW3-1.iml" filepath="$PROJECT_DIR$/HW3-1/HW3-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW4/HW4.iml" filepath="$PROJECT_DIR$/HW4/HW4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW8/HW8.iml" filepath="$PROJECT_DIR$/HW8/HW8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+    </modules>
+  </component>
+</project>
