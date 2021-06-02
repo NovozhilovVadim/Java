@@ -23,7 +23,7 @@ public class ConsolServer {
             }
             while (true){//Запускаем бесконечный цикл отслеживания событий входящего потока
                 socket = server.accept();//Ждём подключения
-                System.out.printf("Client [%s] connected\n", socket.getInetAddress());//Сообщение о подключении клиента -
+                System.out.printf("Client [%s] try to connected\n", socket.getInetAddress());//Сообщение о подключении клиента -
                 // getInetAddress() - возвращает адрес клиента
                 new ClientHandler(this, socket);//создаём нового клиента
             }
@@ -31,6 +31,7 @@ public class ConsolServer {
             e.printStackTrace();
         }finally {
             try {
+                System.out.printf("Client [%s] disconected", socket.getInetAddress());
                 socket.close();//Закрываем сокет, чтобы освободить ресурсы, даже если возник сбой в работе приложения
             }catch (IOException e){
                 e.printStackTrace();
@@ -46,6 +47,14 @@ public class ConsolServer {
 
     public void subscribe(ClientHandler client){//добовляем клиента в Vector
         users.add(client);
+        System.out.println(String.format("Users [%s] conected", client.getNickname()));
+        broadcastClientsList();
+    }
+
+    public void unsubscribe(ClientHandler client){//убираем клиента из Vector'a
+        users.remove(client);
+        System.out.println(String.format("Users [%s] disconected", client.getNickname()));
+        broadcastClientsList();
     }
 
     public boolean verificationNickname(String name){//проверка авторизован клиент или нет
@@ -57,14 +66,13 @@ public class ConsolServer {
         }return true;
     }
 
-    public void unsubscribe(ClientHandler client){//убираем клиента из Vector'a
-        users.remove(client);
-    }
 
-    public void broadcastMessage(String str){//создаём метод рассылки всем клиентам
+    public void broadcastMessage(ClientHandler from, String str){//создаём метод рассылки всем клиентам
         for (ClientHandler c : users//проходим по всему списку подключённых пользователей
         ) {
-            c.sendMsg(str);//каждому отправляем сообщение с помощью sendMsg(str - строка сообщения) из класса ClientHandler
+            if(!c.checkBlacklist(from.getNickname())) {
+                c.sendMsg(str);//каждому отправляем сообщение с помощью sendMsg(str - строка сообщения) из класса ClientHandler
+            }
         }
     }
 
@@ -77,6 +85,18 @@ public class ConsolServer {
                     nickFrom.sendMsg(nickFrom.getNickname() + ": [Send for " + nickTo + "] " + msg);//отправляем себе
                 }
             }
+        }
+    }
+
+    private void broadcastClientsList() {
+        StringBuilder sd = new StringBuilder();
+        sd.append(("/clietList "));
+        for (ClientHandler c : users ) {
+            sd.append(c.getNickname() + " ");
+        }
+        String out = sd.toString();
+        for (ClientHandler c: users) {
+            c.sendMsg(out);
         }
     }
 }

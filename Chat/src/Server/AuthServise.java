@@ -45,14 +45,20 @@ public class AuthServise {//Сервис авторизации пользова
     }
 
     public static String getNicknameByLoginAndPassword(String login, String password){//Запрос к БД по логину и паролю получить ник
-        String query = String.format("select nickname from users where login='%s' and password='%s'", login, password);//отправляем запрос
+        String query = String.format("select nickname, password from users where login='%s' and password='%s'", login);//отправляем запрос
         try {
             ResultSet rs = statement.executeQuery(query);//получаем результат
+            int myHash = password.hashCode();
             if (rs.next()){//если результат есть
-                return rs.getString("nickname");//возвращаем никнэйм
+                String nick = rs.getNString(1);
+                //Изменяем тип PASSWORD на integer в БД
+                int dbHash = rs.getInt(2);
+                if (myHash == dbHash){
+                    return nick;
+                }
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;//в противном случае NULL
     }
